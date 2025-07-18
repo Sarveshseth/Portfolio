@@ -281,16 +281,16 @@
     </section>
 
     <!-- Popup Section -->
-    <div id="popup" class="popup">
-        <div class="popup-content"> 
-            <span class="close-btn" onclick="closePopup()">X</span>
-            <img id="popup-img" src="" alt="Project Image">
-            <h2 id="popup-title"></h2>
-            <p id="popup-description"></p>
-            <a href="https://divyanshi750.github.io/carPool/congo.html"class="projectbtn" target="_blank">View Project</a> 
-        </div>
-        
+ <div id="popup" class="popup">
+    <div class="popup-content"> 
+        <span class="close-btn" onclick="closePopup()">X</span>
+        <img id="popup-img" src="" alt="Project Image">
+        <h2 id="popup-title"></h2>
+        <p id="popup-description"></p>
+        <a href="#" class="projectbtn" target="_blank">View Project</a> 
     </div>
+</div>
+
 
         <section class="testimonials" id="testimonials" aria-labelledby="testimonials-title" >
             <h2>What People <span class="sp"> Say About Me</span></h2>
@@ -428,28 +428,36 @@ if (hireMeButton) {
 const projects = {
     'health-app': {
         title: 'Weather App',
-        description: 'A simple and user-friendly weather forecasting web page that lets you check the weather of any city in just a few clicks! ',
-        image: './imagee.png'
+        description: 'A simple and user-friendly weather forecasting web page that lets you check the weather of any city in just a few clicks!',
+        image: './imagee.png',
+        link: 'https://sarveshseth.github.io/WeatherApp/' 
     },
     'ecommerce': {
-        title: 'NoteWrite',
-        description: 'Welcome to NoteApp – a beautifully styled, animated note-taking web application built with HTML, CSS, and JavaScript.
-Enjoy a cozy coffee-themed splash animation, a sleek UI, and the power of localStorage to manage your notes effortlessly',
-        image: './image copy.png'
+        title: 'Note App',
+        description: 'Welcome to NoteApp – a beautifully styled, animated note-taking web application built with HTML, CSS, and JavaScript.',
+        image: './image copy.png',
+        link: 'https://sarveshseth.github.io/NoteWrite/' 
     },
     'portfolio': {
         title: 'Portfolio Website',
-        description: 'The Portfolio Website project is a personal platform built to showcase skills, projects, and achievements. Developed using React, it offers a dynamic, responsive interface for a seamless user experience. Node.js powers the backend, handling data requests and user interactions. SQL is used to manage structured data like project details, while MongoDB is leveraged for unstructured data such as blogs or testimonials. This website allows for easy navigation, smooth updates, and an elegant presentation of work.',
-        image: './image.png'
+        description: 'The Portfolio Website project is a personal platform built to showcase skills...',
+        image: './image.png',
+        link: 'https://sarveshseth.github.io/Portfolio/' 
     }
 };
 
 function showPopup(projectKey) {
     const popup = document.getElementById('popup');
     const project = projects[projectKey];
+
     document.getElementById('popup-img').src = project.image;
     document.getElementById('popup-title').innerText = project.title;
     document.getElementById('popup-description').innerText = project.description;
+
+    // Update the popup link dynamically
+    const viewBtn = document.querySelector('#popup .projectbtn');
+    viewBtn.href = project.link;
+
     popup.style.display = 'flex';
 }
 
